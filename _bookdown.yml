@@ -1,5 +1,10 @@
-book_filename: "bookdown-demo"
+book_filename: "BRA-EUR-comparison"
 language:
   ui:
     chapter_name: "Chapter "
 delete_merged_file: true
+
+# set output dir for initial building by hand
+output_dir: "docs"
+
+# keep empty line after here ------------------
