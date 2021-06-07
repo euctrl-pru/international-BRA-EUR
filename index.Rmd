@@ -1,7 +1,7 @@
 --- 
 title: "Comparison of Operational Air Navigation System Performance in Brazil and Europe"
 author: "Performance Section (DECEA) and Performance Review Unit (EUROCONTROL)"
-date: "`r Sys.Date()`"
+date: "`r format(Sys.Date(),'%d %B %Y')`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
