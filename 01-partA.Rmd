@@ -1,6 +1,7 @@
-# Part A - Demand/Traffic Development during COVID19 {- #partA}
+# (PART\*) Part A - Demand/Traffic Development <br> during COVID19 {#partA -}
 
 # COVID Briefing
 
 <!--| placeholder for citations -->
+
 This online book is built with **bookdown** package [@R-bookdown] which is built on top of R Markdown and **knitr** [@xie2015].
