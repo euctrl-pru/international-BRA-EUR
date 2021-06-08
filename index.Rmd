@@ -17,6 +17,8 @@ description: "This initial comparison of Operational Air Navigation System Perfo
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
+# set knitroptions
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 ```
 
 # Operational Air Navigation System <br> Performance - Brazil/Europe {-}
