@@ -5,7 +5,7 @@ date: "`r format(Sys.Date(),'%d %B %Y')`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
-bibliography: [book.bib, packages.bib]
+bibliography: [book.bib, packages.bib, Brazil-Europe-Comparison-xbib.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: euctrl-pru/international-BRA-EUR
