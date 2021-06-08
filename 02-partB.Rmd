@@ -1,4 +1,8 @@
-# (PART\*) - Initial Comparison 
+# (PART\*) Part B - Initial Comparison Report <br> Brazil/Europe {#partB .unnumbered}
+
+This is Part B. It will comprise the initial comparison report.
+
+# Intro
 
 # Brazil/Europe Comparison of Operational ANS Performance
 
