@@ -108,7 +108,7 @@ Figure \@ref(fig:scope-graph) depicts the Brazilian and European region with the
 
 (ref:scope-graph) Geographical scope of the Brazil/Europe comparison.
 
-```{r scope-graph, fig.cap="(ref:scope-graph)", out.width="60"}
+```{r scope-graph, fig.cap="(ref:scope-graph)", out.width="90%"}
 knitr::include_graphics("./figures/scope-country-apts.png")
 ```
 
