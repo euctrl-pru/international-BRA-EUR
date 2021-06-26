@@ -1598,4 +1598,4 @@ Future editions will also enable to complement data time series and support the 
 The lessons learnt of this joint project will also be coordinated with the PBWG and ICAO GANP Study sub-group concerned with the further development of the GANP KPIs.
 
 
-# References
+<!-- # References -->
