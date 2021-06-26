@@ -30,8 +30,6 @@ fig:txit
 fig:txot
 fig:asma-hist
 fig:asma-vis
-intro
-brazileurope-comparison-of-operational-ans-performance
 executive-summary
 introduction-1
 background

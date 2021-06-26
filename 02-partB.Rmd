@@ -1,12 +1,6 @@
 # (PART\*) Part B - Initial Comparison Report <br> Brazil/Europe {#partB .unnumbered}
 
-This is Part B. It will comprise the initial comparison report.
-
-# Intro
-
-# Brazil/Europe Comparison of Operational ANS Performance
-
-```{r setup, include=FALSE, message=FALSE}
+```{r setupB, include=FALSE, message=FALSE}
 library(readr)
 library(dplyr)
 library(ggplot2)
@@ -84,11 +78,18 @@ bra <- bra %>% filter(AIRPORT %in% bra_apts)
 eur <- eur %>% filter(AIRPORT %in% eur_apts)
 ```
 
-```{}
-NOTE: THIS VERSION HAS BEEN RENDERED IN SUPPORT OF THE FINAL REVIEW AND APPROVAL AS AGREED DURING THE TECHNICAL PS/PRU MEETING ON 19. NOVEMBER 2020, 
+# Front Matters {-}
+
+## Foreword(s) {-}
+
+<div style="float:left; padding:3px; width:200px">
+
+```{r foreword1, echo=FALSE}
+knitr::include_graphics("figures/Braga-official.jpg")
 ```
 
-# Foreword(s) {-}
+</div>
+
 
 Collaboration is critical to achieving complex goals. 
 In 2015, DECEA initiated a strategic partnership with EUROCONTROL to improve Brazil's air navigation services by sharing best practices and developing meaningful joint projects. 
@@ -96,15 +97,31 @@ Now, another relevant product is ready. The Brazil/Europe ATM-related performanc
 The data provided herein shows many positive outcomes in the Brazilian air traffic control system of DECEA's recent actions and offers insights to further opportunities for improvements.
 The report will help ANSPs, airlines, and airports better understand the similarities and differences between Brazilian and European air traffic. DECEA Subdepartment of Operations invites all ATM stakeholders to know more about aeronautical facts both in Brazil and Europe, and cooperate to develop enhanced ANS worldwide.
 
-Brig. Fernando César da Costa e Silva Braga
-Head of SDOP
+*Brig. Fernando César da Costa e Silva Braga*    
+*Head of SDOP*
+
+<div style="float:right; padding:3px; width:200px">
+
+```{r foreword2, echo=FALSE}
+knitr::include_graphics("figures/Heraldo-official.jpg")
+```
+
+</div>
 
 The Brazil/Europe Comparison of ANS performance is a great effort from both EUROCONTROL's Performance Review Unit and DECEA's Performance Section, which debuts in its first cooperative publication. We encourage the development of similar future works, so to help ATM stakeholders to understand and improve air traffic.
 The report is a step forward for an enhanced understanding of ATM aspects in both regions. Aviation is not a stand-alone system. In fact, it is a system-of-systems, and only by sharing data and through interactive activities will global ATM evolve.
 DECEA reinforces its trust in the high value of collaborative practices. We sincerely acknowledge EUROCONTROL partners' efforts and hope that the following pages may be useful to support a more efficient global ATM system.
 
-Lt. Brig. Heraldo Luiz Rodrigues
-Director General DECEA
+*Lt. Brig. Heraldo Luiz Rodrigues*    
+*Director General DECEA*
+
+<div style="float:left; padding:3px; width:200px">
+
+```{r foreword3, echo=FALSE}
+knitr::include_graphics("figures/BAUMGARTNER Marc_photo 2.png")
+```
+
+</div>
 
 The Performance Review Commission (PRC) is committed to support the international harmonisation and further development of the performance based approach. It is encouraging to see that through regional collaborations many parties exchange and learn from each other. And together we manage to promote the performance know-how under the umbrella of ICAO.
 Performance comparisons are at the heart of developing data-driven and independent analyses to support decision-making. 
@@ -113,8 +130,16 @@ It documents a first step in a journey and provides a good basis to study the si
 We appreciate the effort that went into the data collection and production of this report on the Brazilian side by DECEA's Peformance Section, and the close cooperation with the Performance Review Unit. 
 This report will help to foster cooperation and carry out research and development into the longer term evolution of air navigation system performance and benchmarking with other regions.
 
-Marc Baumgartner
-PRC Chairman
+*Marc Baumgartner*    
+*PRC Chairman*
+
+<div style="float:left; padding:3px; width:200px">
+
+```{r foreword4, echo=FALSE}
+knitr::include_graphics("figures/Eamonn-ECT-2017-12-01-0094.jpg")
+```
+
+</div>
 
 The EUROCONTROL Agency appreciates the cooperation under the DECEA/EUROCONTROL agreement.  
 The pressure on our industry to cope and respond to the challenges of 2020 is unprecedented.
@@ -125,8 +150,9 @@ The report examines commonalities and differences in terms of air traffic manage
 There is no shortage of ideas on how to expand the analyses through the close collaboration between the Performance Section and Performance Review Unit.
 With this initial report, we are looking forward to deepen our cooperation with DECEA and future updates.
 
-Eamonn Brennan
-Director General EUROCONTROL
+*Eamonn Brennan*    
+*Director General EUROCONTROL*
+
 
 # Document Identification {-}
 

@@ -9,6 +9,9 @@ bookdown::gitbook:
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     edit: https://github.com/euctrl-pru/international-BRA-EUR/edit/master/%s
     #download: ["pdf", "epub"]
+    sharing:
+      facebook: false
+      twitter: false
 #bookdown::pdf_book:
 #  includes:
 #    in_header: preamble.tex
