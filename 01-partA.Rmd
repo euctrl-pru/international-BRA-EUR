@@ -1,16 +1,6 @@
 # (PART\*) Part A - Demand/Traffic Development <br> during COVID19 {#partA -}
 
-
 ```{r setupA, include=FALSE}
-# high quality graphs in non-pdf output #-------------------------------------
-# knit_quality_vis <- function(){
-#   if (knitr::opts_knit$get("rmarkdown.pandoc.to") != "latex") {
-#     knitr::opts_chunk$set( dev.args = list(type = "cairo"))
-#   }
-# } 
-# purrr::safely(.f = knit_quality_vis)
-#---------------------------------------------------------- quality vis -----
-
 knitr::opts_chunk$set(
    echo = FALSE, message = FALSE, warning = FALSE    # messages
   , dpi = 320               #, dev.args = list(type = "cairo") #
@@ -62,7 +52,9 @@ eur_apt_max_date <- eur_count_airport %>% max_date_in_data()
 
 \newpage
 
-COPYRIGHT NOTICE AND DISCLAIMER
+<div style='background:#f8f8f8; margin-top:150px; font-size:smaller'>
+
+**COPYRIGHT NOTICE AND DISCLAIMER**
 
 Every possible effort was made to ensure that the information and analysis contained in this document are as accurate and complete as possible. Should you find any errors or inconsistencies we would be grateful if you could bring them to our attention.
 
@@ -71,10 +63,11 @@ The views expressed herein do not necessarily reflect the official views or poli
 This document is jointly published by EUROCONTROL and DECEA for information purposes. It may be copied in whole or in part, provided that EUROCONTROL and DECEA is mentioned as the source and it is not used for commercial purposes (i.e. for financial gain). The information in this document may not be modified without prior written permission from EUROCONTROL and DECEA.
 
 www.eurocontrol.int & www.decea.mil.br
+</div>
 
 \newpage
 
-# Executive Summary
+# Executive Summary - Covid Briefing {-}
 
 This COVID-19 Briefing complements the initial operational comparison of air navigation system performance in Brazil and Europe jointly developed by the Brazilian Department of Airspace Control (DECEA) Performance Section and the EUROCONTROL Performance Review Unit (PRU). 
 The comparison report covers the years 2016 through 2019 and focuses on the identification of similarities and difference between the 2 regional systems in terms of operational performance. 
@@ -121,7 +114,7 @@ knitr::include_graphics("./figures/scope-country-apts.png")
 
 \newpage
 
-# Timeline Review
+# Timeline Review {-}
 
 The COVID-19 pandemic hit all countries worldwide, but at different moments. 
 In Europe, the first case was registered in January 24, 2020, in France. 
@@ -303,7 +296,7 @@ The overall numbers are characteristic for the decline in traffic seen on the ne
 The traffic count displayed for 2021 reflects the traffic at the study airports for the first months of 2021.
 This value should not be confused with the shown total annual values for 2019 and 2020.
 
-## Daily Traffic at the Top-10 Airports
+## Daily Traffic at the Top-10 Airports {-}
 
 When comparing the traffic development at the top-10 airports in both regions, a refined pattern emerges.
 Figure \@ref(fig:timeline-apts) shows the daily movements at these airports.
@@ -351,7 +344,7 @@ Despite the fact that the study airports represent major hubs in different count
 As a single country - under a single policy - Brazil observed a higher level of recovery.
 The decline in the first quarter of 2021 is linked to the 2nd wave and associated traffic restrictions.
 
-## Impact on International Traffic at Top-10 Airports
+## Impact on International Traffic at Top-10 Airports {-}
 
 ```{r}
 p1 <- counts_norm %>%
@@ -397,7 +390,7 @@ In the first quarter of 2021 international traffic decreased as the increasing n
 3. make an alternative graph with reduced timeline? check
 -------------------------------------------------     -->
 
-## Impact on Airport Level
+## Impact on Airport Level {-}
 
 ```{r}
 #-----TO DO: AIRPORT BREAKDOWN

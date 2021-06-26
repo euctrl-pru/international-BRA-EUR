@@ -30,14 +30,9 @@ fig:txit
 fig:txot
 fig:asma-hist
 fig:asma-vis
-executive-summary
-timeline-review
-daily-traffic-at-the-top-10-airports
-impact-on-international-traffic-at-top-10-airports
-impact-on-airport-level
 intro
 brazileurope-comparison-of-operational-ans-performance
-executive-summary-1
+executive-summary
 introduction-1
 background
 scope-1
