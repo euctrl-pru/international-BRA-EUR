@@ -133,7 +133,7 @@ This report will help to foster cooperation and carry out research and developme
 *Marc Baumgartner*    
 *PRC Chairman*
 
-<div style="float:left; padding:3px; width:200px">
+<div style="float:right; padding:3px; width:200px">
 
 ```{r foreword4, echo=FALSE}
 knitr::include_graphics("figures/Eamonn-ECT-2017-12-01-0094.jpg")
@@ -154,7 +154,7 @@ With this initial report, we are looking forward to deepen our cooperation with 
 *Director General EUROCONTROL*
 
 
-# Document Identification {-}
+## Document Identification {-}
 
 This document is a joint publication of the Department of Airspace Control of the Brazilian Air Force (DECEA) and the European Organisation for the Safety of Air Navigation EUROCONTROL in the interest of the exchange of information. 
 It is prepared in application of Annex 4 of the Agreement for Cooperation signed between DECEA and EUROCONTROL on 5 October 2015.
@@ -162,6 +162,7 @@ The objective of Annex 4 is to foster cooperation and facilitate further harmoni
 The work is based on a set of comparable performance indicators, jointly developed and refined, creating a sound basis for such factual comparisons between countries and world regions.
 Both parties are committed to share the lessons learned and best practices through this process and promote the application of this know-how under the umbrella of further regional or international working arrangements.
 
+<div style='background:#f8f8f8; margin-top:150px; font-size:smaller'>
 
 COPYRIGHT NOTICE AND DISCLAIMER
 
@@ -176,11 +177,13 @@ The views expressed herein do not necessarily reflect the official views or poli
 which makes no warranty, either implied or express, for the information contained in this document, neither does it
 assume any legal liability or responsibility for the accuracy, completeness or usefulness of this information.
 
-© Department of Airspace Control (DECEA), Performance Section
-© European Organisation for the Safety of Air Navigation (EUROCONTROL), Performance Review Unit
+© Department of Airspace Control (DECEA), Performance Section   
+© European Organisation for the Safety of Air Navigation (EUROCONTROL), Performance Review Unit 
+
+</div>
 
 
-# Executive Summary
+# Executive Summary {-}
 
 The Brazilian Department of Airspace Control (DECEA) Performance Section and the EUROCONTROL Performance Review Unit (PRU) jointly produced this initial performance study using commonly agreed metrics and definitions to compare, understand, and improve air the performance of navigation services (ANS).
 

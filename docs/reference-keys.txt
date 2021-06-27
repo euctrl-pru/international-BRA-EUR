@@ -30,7 +30,6 @@ fig:txit
 fig:txot
 fig:asma-hist
 fig:asma-vis
-executive-summary
 introduction-1
 background
 scope-1
