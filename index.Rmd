@@ -33,12 +33,21 @@ title.innerHTML = '<img src="figures/x-cover-bra-eur-2019-banner.png", alt="Braz
 
 This online version presents the initial comparison of Operational Air Navigation System Performance in Brazil and Europe.
 
+<div style="float:right; padding:10px; height:150px; width:100px">
+<a href="Brazil-Europe-Comparison-COVID19-Briefing-20210625.pdf" download>download briefing
+```{r cover-briefing, echo=FALSE}
+knitr::include_graphics("figures/x-cover-bra-eur-2019.png")
+```
+</a>
+</div>
+
 It is organised in 2 parts:
 
-* **Part A - COVID-Briefing**: most recent COVID19 related system characteristics in terms of traffic/demand. This part will be updated on a regular basis.
+* **Part A - COVID-Briefing**: A most recent COVID19 related descriptoin of the regional system characteristics in terms of traffic/demand evolution. The reporting will be augmented over time with operational performance measures reflecting the changes in both regions.    
+This part will be updated on a regular basis.
 
 <div style="float:right; padding:10px; height:150px; width:100px">
-<a href="figures/x-cover-bra-eur-2019.png" download>download the report
+<a href="Brazil-Europe-Comparison-Report-20210625.pdf" download>download report
 ```{r cover2019, echo=FALSE}
 knitr::include_graphics("figures/x-cover-bra-eur-2019.png")
 ```
