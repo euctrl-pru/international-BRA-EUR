@@ -34,7 +34,7 @@ title.innerHTML = '<img src="figures/x-cover-bra-eur-2019-banner.png", alt="Braz
 This online version presents the initial comparison of Operational Air Navigation System Performance in Brazil and Europe.
 
 <div style="float:right; padding:10px; height:150px; width:100px">
-<a href="Brazil-Europe-COVID19-Briefing-20210625.pdf">download briefing
+<a href="Brazil-Europe-COVID19-Briefing-20210708.pdf">download briefing
 ```{r cover-briefing, echo=FALSE}
 knitr::include_graphics("figures/x-cover-bra-eur-2019.png")
 ```
@@ -47,7 +47,7 @@ It is organised in 2 parts:
 This part will be updated on a regular basis.
 
 <div style="float:right; padding:10px; height:150px; width:100px">
-<a href="Brazil-Europe-Comparison-Report-20210625.pdf" download>download report
+<a href="Brazil-Europe-Comparison-Report-20210708.pdf" download>download report
 ```{r cover2019, echo=FALSE}
 knitr::include_graphics("figures/x-cover-bra-eur-2019.png")
 ```
