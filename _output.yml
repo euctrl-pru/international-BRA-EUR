@@ -8,7 +8,10 @@ bookdown::gitbook:
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     edit: https://github.com/euctrl-pru/international-BRA-EUR/edit/master/%s
-    #download: ["pdf", "epub"]
+    download: no    # ["pdf", "epub"] or add hyphen list, e.g.: - ["book.pdf", "PDF"]
+    sharing:
+      facebook: false
+      twitter: false
 #bookdown::pdf_book:
 #  includes:
 #    in_header: preamble.tex

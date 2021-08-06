@@ -1,3 +1,14 @@
+fig:scope-graph
+fig:timeline-region-mvts
+fig:norm-timeline
+fig:viz-annualvar
+fig:timeline-apts
+fig:timeline-apts-intl
+fig:apt-tfc-counts
+fig:apt-annual-var-2020
+fig:apt-annual-var-2021
+fig:dom-intl-bra
+fig:dom-intl-eur
 fig:BRA-FIR
 fig:Europe-EUROCONTROL
 fig:geo-scope
@@ -19,10 +30,7 @@ fig:txit
 fig:txot
 fig:asma-hist
 fig:asma-vis
-intro
-brazileurope-comparison-of-operational-ans-performance
-executive-summary
-introduction
+introduction-1
 background
 scope-1
 geographical-scope
@@ -50,5 +58,8 @@ additional-taxi-in-time
 additional-taxi-out-time
 additional-time-in-terminal-airspace
 conclusions
+<<<<<<< HEAD
 references
 total-impacts
+=======
+>>>>>>> 73a724a98ccd1abf88cf7100e11894da9959a1a7
