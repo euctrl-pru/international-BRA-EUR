@@ -24,7 +24,7 @@ brazileurope-comparison-of-operational-ans-performance
 executive-summary
 introduction
 background
-scope
+scope-1
 geographical-scope
 temporal-scope
 data-sources
@@ -51,3 +51,4 @@ additional-taxi-out-time
 additional-time-in-terminal-airspace
 conclusions
 references
+total-impacts

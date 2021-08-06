@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>COVID Briefing | Comparison of Operational Air Navigation System Performance in Brazil and Europe</title>
+  <title>Scope | Comparison of Operational Air Navigation System Performance in Brazil and Europe</title>
   <meta name="description" content="This initial comparison of Operational Air Navigation System Performance in Brazil and Europe is a jointly developed report. It comprises two parts: Part A provides the most recent traffic/demand related system characterisation in light of COVID19; Part B represents the initial comparison report based on a selected subset of measures. The regional comparison will be updated on a regular basis." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="COVID Briefing | Comparison of Operational Air Navigation System Performance in Brazil and Europe" />
+  <meta property="og:title" content="Scope | Comparison of Operational Air Navigation System Performance in Brazil and Europe" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="euctrl-pru/international-BRA-EUR" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="COVID Briefing | Comparison of Operational Air Navigation System Performance in Brazil and Europe" />
+  <meta name="twitter:title" content="Scope | Comparison of Operational Air Navigation System Performance in Brazil and Europe" />
   
   <meta name="twitter:description" content="This initial comparison of Operational Air Navigation System Performance in Brazil and Europe is a jointly developed report. It comprises two parts: Part A provides the most recent traffic/demand related system characterisation in light of COVID19; Part B represents the initial comparison report based on a selected subset of measures. The regional comparison will be updated on a regular basis." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="scope.html"/>
+<link rel="prev" href="covidh1.html"/>
+<link rel="next" href="in-review.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -196,94 +196,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="covidh1" class="section level1 unnumbered">
-<h1>COVID Briefing</h1>
-<p>The present section aims to compare the impact of COVID-19 crisis on air traffic in Brazil and Europe</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="covidh1.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Load relevant packages</span></span>
-<span id="cb1-2"><a href="covidh1.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 4.0.4</code></pre>
-<pre><code>## -- Attaching packages --------------------- tidyverse 1.3.0 --</code></pre>
-<pre><code>## v ggplot2 3.3.3     v purrr   0.3.4
-## v tibble  3.0.3     v dplyr   1.0.2
-## v tidyr   1.1.2     v stringr 1.4.0
-## v readr   1.4.0     v forcats 0.5.0</code></pre>
-<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 4.0.5</code></pre>
-<pre><code>## Warning: package &#39;readr&#39; was built under R version 4.0.4</code></pre>
-<pre><code>## Warning: package &#39;forcats&#39; was built under R version 4.0.3</code></pre>
-<pre><code>## -- Conflicts ------------------------ tidyverse_conflicts() --
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="covidh1.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb9-2"><a href="covidh1.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb9-3"><a href="covidh1.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb9-4"><a href="covidh1.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
-<span id="cb9-5"><a href="covidh1.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maps)</span></code></pre></div>
-<pre><code>## Warning: package &#39;maps&#39; was built under R version 4.0.3</code></pre>
-<pre><code>## 
-## Attaching package: &#39;maps&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:purrr&#39;:
-## 
-##     map</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="covidh1.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb13-2"><a href="covidh1.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span></code></pre></div>
-<pre><code>## Warning: package &#39;flextable&#39; was built under R version 4.0.5</code></pre>
-<pre><code>## 
-## Attaching package: &#39;flextable&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:purrr&#39;:
-## 
-##     compose</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="covidh1.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code></pre></div>
-<pre><code>## Warning: package &#39;lubridate&#39; was built under R version 4.0.3</code></pre>
-<pre><code>## 
-## Attaching package: &#39;lubridate&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     date, intersect, setdiff, union</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="covidh1.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(zoo)</span></code></pre></div>
-<pre><code>## Warning: package &#39;zoo&#39; was built under R version 4.0.3</code></pre>
-<pre><code>## 
-## Attaching package: &#39;zoo&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     as.Date, as.Date.numeric</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="covidh1.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Read relevant data</span></span>
-<span id="cb25-2"><a href="covidh1.html#cb25-2" aria-hidden="true" tabindex="-1"></a>bra_count_airport <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;../PBWG-2021/data/PBWG-BRA-airport-traffic.csv&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb25-3"><a href="covidh1.html#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">APT_ICAO =</span> <span class="fu">as.factor</span>(APT_ICAO))</span></code></pre></div>
-<pre><code>## 
-## -- Column specification --------------------------------------
-## cols(
-##   APT_ICAO = col_character(),
-##   DATE = col_date(format = &quot;&quot;),
-##   ARRS = col_double(),
-##   DEPS = col_double(),
-##   HEAVY = col_double(),
-##   MED = col_double(),
-##   LIGHT = col_double(),
-##   ARRS_DOM = col_double(),
-##   DEPS_DOM = col_double()
-## )</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="covidh1.html#cb27-1" aria-hidden="true" tabindex="-1"></a>eur_count_airport <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;../PBWG-2021/data/PBWG-EUR-airport-traffic.csv&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">APT_ICAO =</span> <span class="fu">as.factor</span>(ICAO), <span class="at">.before =</span> DATE, <span class="at">.keep =</span> <span class="st">&quot;unused&quot;</span>)</span></code></pre></div>
-<pre><code>## 
-## -- Column specification --------------------------------------
-## cols(
-##   ICAO = col_character(),
-##   DATE = col_date(format = &quot;&quot;),
-##   ARRS = col_double(),
-##   DEPS = col_double(),
-##   HEAVY = col_double(),
-##   MED = col_double(),
-##   LIGHT = col_double(),
-##   ARRS_DOM = col_double(),
-##   DEPS_DOM = col_double()
-## )</code></pre>
+<div id="scope" class="section level1 unnumbered">
+<h1>Scope</h1>
+<p>This briefing includes data from the following airports:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="scope.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#useful filters</span></span>
+<span id="cb29-2"><a href="scope.html#cb29-2" aria-hidden="true" tabindex="-1"></a>bra_10_apts <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;SBBR&quot;</span>, <span class="st">&quot;SBGR&quot;</span>, <span class="st">&quot;SBSP&quot;</span>, <span class="st">&quot;SBKP&quot;</span>, <span class="st">&quot;SBRJ&quot;</span>, <span class="st">&quot;SBGL&quot;</span>, <span class="st">&quot;SBCF&quot;</span>, <span class="st">&quot;SBSV&quot;</span>, <span class="st">&quot;SBPA&quot;</span>, <span class="st">&quot;SBCT&quot;</span>)</span>
+<span id="cb29-3"><a href="scope.html#cb29-3" aria-hidden="true" tabindex="-1"></a>eur_apts <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;EHAM&quot;</span>,<span class="st">&quot;LFPG&quot;</span>,<span class="st">&quot;EGLL&quot;</span>,<span class="st">&quot;EDDF&quot;</span>,<span class="st">&quot;EDDM&quot;</span>,<span class="st">&quot;LEMD&quot;</span>,<span class="st">&quot;LIRF&quot;</span>,<span class="st">&quot;LEBL&quot;</span>,<span class="st">&quot;EGKK&quot;</span>,<span class="st">&quot;LSZH&quot;</span>)</span>
+<span id="cb29-4"><a href="scope.html#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="scope.html#cb29-5" aria-hidden="true" tabindex="-1"></a>scope_function <span class="ot">&lt;-</span> . <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">year</span>(DATE) <span class="sc">%in%</span> <span class="dv">2019</span><span class="sc">:</span><span class="dv">2021</span> <span class="sc">&amp;</span> APT_ICAO <span class="sc">%in%</span> <span class="fu">c</span>(bra_10_apts, eur_apts)) <span class="sc">%&gt;%</span> <span class="fu">drop_na</span>()</span>
+<span id="cb29-6"><a href="scope.html#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="scope.html#cb29-7" aria-hidden="true" tabindex="-1"></a>bra_count_airport <span class="ot">&lt;-</span> bra_count_airport <span class="sc">%&gt;%</span> <span class="fu">scope_function</span>()</span>
+<span id="cb29-8"><a href="scope.html#cb29-8" aria-hidden="true" tabindex="-1"></a>eur_count_airport <span class="ot">&lt;-</span> eur_count_airport <span class="sc">%&gt;%</span> <span class="fu">scope_function</span>()</span>
+<span id="cb29-9"><a href="scope.html#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="co">#head(bra_count_airport)</span></span>
+<span id="cb29-10"><a href="scope.html#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="co">#head(eur_count_airport)</span></span></code></pre></div>
+<div id="brazil" class="section level2 unnumbered">
+<h2>Brazil</h2>
+<p>SBBR, SBCF, SBCT, SBGL, SBGR, SBKP, SBPA, SBRJ, SBSP, and SBSV</p>
+</div>
+<div id="europe" class="section level2 unnumbered">
+<h2>Europe</h2>
+<p>European airports are EDDF, EDDM, EGLL, EHAM, LEMD, LFPG, LIRF, and LSZH</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="scope.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="covidh1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="in-review.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
