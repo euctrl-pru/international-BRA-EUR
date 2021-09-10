@@ -157,19 +157,21 @@ reg_eur <- eur_count_region %>% calc_total_flights
 reg_tfc <- bind_rows(reg_bra, reg_eur) %>%
   select(REG, DATE, MVTS, MVTS_ROLLAVG)
 
-p1 <- reg_bra %>% 
+p1 <- reg_bra %>% mutate(DATE = as.Date(DATE)) %>%
   ggplot(aes(x = DATE)) +
   geom_point(aes(y = MVTS), colour = bra_eur_colours[1], alpha = 0.2, size = 0.2) +
   geom_line(aes(y = MVTS_ROLLAVG), colour = bra_eur_colours[1], size = 1) +
+  scale_x_date(date_breaks = "1 year", limits = c(as.Date("2019-01-01"), as.Date("2021-02-28")), date_labels = "%b-%Y", date_minor_breaks = "1 month") +
   theme_minimal() +
   labs( subtitle = "Brazil region - daily movements (rolling 7-day-average)"
        ,x = NULL, y = NULL) +
   theme(legend.position = "none")
 
-p2 <- reg_eur %>% 
+p2 <- reg_eur %>% mutate(DATE = as.Date(DATE)) %>%
   ggplot(aes(x = DATE)) +
   geom_point(aes(y = MVTS), colour = bra_eur_colours[2], alpha = 0.2, size = 0.2) +
   geom_line(aes(y = MVTS_ROLLAVG), colour = bra_eur_colours[2], size = 1) +
+  scale_x_date(date_breaks = "1 year", limits = c(as.Date("2019-01-01"), as.Date("2021-02-28")), date_labels = "%b-%Y", date_minor_breaks = "1 month") +
   theme_minimal() +
   labs( subtitle = "European region - daily movements (rolling 7-day-average)"
        ,x = NULL, y = NULL) +
