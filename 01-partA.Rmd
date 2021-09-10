@@ -154,8 +154,11 @@ reg_bra <- bra_count_region %>% calc_total_flights %>%
 
 reg_eur <- eur_count_region %>% calc_total_flights
 
+UpperLimit <- min(c(max(reg_bra$DATE), max(reg_eur$DATE)))
+
 reg_tfc <- bind_rows(reg_bra, reg_eur) %>%
-  select(REG, DATE, MVTS, MVTS_ROLLAVG)
+  select(REG, DATE, MVTS, MVTS_ROLLAVG) %>%
+  filter(DATE <= UpperLimit)
 
 p1 <- reg_bra %>% mutate(DATE = as.Date(DATE)) %>%
   ggplot(aes(x = DATE)) +
@@ -190,7 +193,7 @@ This is related to the reaction of several air transport operators to limit thei
 ```{r norm-timeline, fig.cap="(ref:norm-timeline)"}
 ref_pct <- 0.9  # reference percentile for normalisation
 
-reg_tfc <- reg_tfc %>%
+reg_tfc <- reg_tfc %>% mutate(DATE = as.Date(DATE)) %>%
   group_by(REG) %>%
   mutate( MVTS_NORM = MVTS / quantile(MVTS[year(DATE)==2019], probs = ref_pct)
          ,MVTS_NORM_ROLLAVG = rollmean(MVTS_NORM, k = 7, fill = NA)
@@ -204,6 +207,7 @@ reg_tfc %>%
   scale_colour_manual(values = bra_eur_colours, labels = c("BRA","EUR")) +
   scale_y_continuous( expand = c(0, 0), limits = c(0, NA)
                      ,labels = scales::percent_format(accuracy = 1)) +
+  scale_x_date(date_breaks = "1 year", limits = c(as.Date("2019-01-01"), as.Date("2021-02-28")), date_labels = "%b-%Y") +
   theme_minimal() +
   labs(x = NULL, y = NULL, colour = NULL) +
   theme(legend.position = c(0.1, 0.4))
@@ -272,7 +276,7 @@ g1 <- ds4 %>% ggplot() +
             ,vjust = ifelse(ds4$MVTS > 200000, 1.2, -0.8)) + 
   scale_y_continuous(labels = scales::number_format()) +
   theme_minimal() +
-  labs(x = NULL, y = "movements", fill = NULL
+  labs(x = NULL, y = "Movements", fill = NULL
       # ,title = "Movements at the Study Airports in both Regions"
       ) +
   theme(legend.position = c(0.9, 0.9))
@@ -307,7 +311,9 @@ The sesonality of traffic in Europe is contrasted by the homogeneous demand leve
 Similar levels have been observed in the first two months of 2021.
 
 ```{r}
-p1 <- counts_norm %>% ggplot(aes(x = DATE)) +
+p1 <- counts_norm %>%
+  filter(DATE <= UpperLimit) %>%
+  ggplot(aes(x = DATE)) +
   geom_line(aes(y = MVTS, colour = REG), alpha = 0.2, size = 0.2) +
   geom_line(aes(y = MVTS_ROLLAVG, colour = REG), size = 1) +
   theme_minimal() +
@@ -318,7 +324,9 @@ p1 <- counts_norm %>% ggplot(aes(x = DATE)) +
 ```
 
 ```{r}
-p2 <- counts_norm %>% ggplot(aes(x = DATE)) +
+p2 <- counts_norm %>%
+  filter(DATE <= UpperLimit) %>%
+  ggplot(aes(x = DATE)) +
   geom_line(aes(y = MVTS_NORM, colour = REG), alpha = 0.2, size = 0.2) +
   geom_line(aes(y = MVTS_NORM_ROLLAVG, colour = REG), size = 1) +
   scale_colour_manual(values = bra_eur_colours) +
@@ -350,6 +358,7 @@ The decline in the first quarter of 2021 is linked to the 2nd wave and associate
 
 ```{r}
 p1 <- counts_norm %>%
+  filter(DATE <= UpperLimit) %>%
   ggplot(aes(x = DATE)) +
   geom_line(aes(y = MVTS_INT, colour = REG)) +
   scale_colour_manual(values = bra_eur_colours) + 
@@ -359,6 +368,7 @@ p1 <- counts_norm %>%
 
 
 p2 <- counts_norm %>%
+  filter(DATE <= UpperLimit) %>%
   ggplot(aes(x = DATE)) +
   geom_line(aes(y = MVTS_INT_NORM, colour = REG)) +
   scale_colour_manual(values = bra_eur_colours) + 
