@@ -47,6 +47,8 @@ max_date_in_data <- function(.ds){
 }
 bra_apt_max_date <- bra_count_airport %>% max_date_in_data()
 eur_apt_max_date <- eur_count_airport %>% max_date_in_data()
+
+DateLimit <- min(bra_apt_max_date, eur_apt_max_date)
 ```
 
 
@@ -154,17 +156,15 @@ reg_bra <- bra_count_region %>% calc_total_flights %>%
 
 reg_eur <- eur_count_region %>% calc_total_flights
 
-UpperLimit <- min(c(max(reg_bra$DATE), max(reg_eur$DATE)))
-
 reg_tfc <- bind_rows(reg_bra, reg_eur) %>%
   select(REG, DATE, MVTS, MVTS_ROLLAVG) %>%
-  filter(DATE <= UpperLimit)
+  filter(DATE <= DateLimit)
 
 p1 <- reg_bra %>% mutate(DATE = as.Date(DATE)) %>%
   ggplot(aes(x = DATE)) +
   geom_point(aes(y = MVTS), colour = bra_eur_colours[1], alpha = 0.2, size = 0.2) +
   geom_line(aes(y = MVTS_ROLLAVG), colour = bra_eur_colours[1], size = 1) +
-  scale_x_date(date_breaks = "1 year", limits = c(as.Date("2019-01-01"), as.Date("2021-02-28")), date_labels = "%b-%Y", date_minor_breaks = "1 month") +
+  scale_x_date(date_breaks = "1 year", limits = c(as.Date("2019-01-01"), DateLimit), date_labels = "%b-%Y", date_minor_breaks = "1 month") +
   theme_minimal() +
   labs( subtitle = "Brazil region - daily movements (rolling 7-day-average)"
        ,x = NULL, y = NULL) +
@@ -174,7 +174,7 @@ p2 <- reg_eur %>% mutate(DATE = as.Date(DATE)) %>%
   ggplot(aes(x = DATE)) +
   geom_point(aes(y = MVTS), colour = bra_eur_colours[2], alpha = 0.2, size = 0.2) +
   geom_line(aes(y = MVTS_ROLLAVG), colour = bra_eur_colours[2], size = 1) +
-  scale_x_date(date_breaks = "1 year", limits = c(as.Date("2019-01-01"), as.Date("2021-02-28")), date_labels = "%b-%Y", date_minor_breaks = "1 month") +
+  scale_x_date(date_breaks = "1 year", limits = c(as.Date("2019-01-01"), DateLimit), date_labels = "%b-%Y", date_minor_breaks = "1 month") +
   theme_minimal() +
   labs( subtitle = "European region - daily movements (rolling 7-day-average)"
        ,x = NULL, y = NULL) +
@@ -207,7 +207,7 @@ reg_tfc %>%
   scale_colour_manual(values = bra_eur_colours, labels = c("BRA","EUR")) +
   scale_y_continuous( expand = c(0, 0), limits = c(0, NA)
                      ,labels = scales::percent_format(accuracy = 1)) +
-  scale_x_date(date_breaks = "1 year", limits = c(as.Date("2019-01-01"), as.Date("2021-02-28")), date_labels = "%b-%Y") +
+  scale_x_date(date_breaks = "1 year", limits = c(as.Date("2019-01-01"), DateLimit), date_labels = "%b-%Y") +
   theme_minimal() +
   labs(x = NULL, y = NULL, colour = NULL) +
   theme(legend.position = c(0.1, 0.4))
@@ -319,6 +319,7 @@ p1 <- counts_norm %>%
   theme_minimal() +
   labs(x = NULL, y = NULL, colour = NULL) +
   scale_colour_manual(values = bra_eur_colours) +
+  scale_x_date(date_breaks = "1 year", limits = c(as.Date("2019-01-01"), DateLimit), date_labels = "%b-%Y") +
   theme(legend.position = c(0.1,0.55))
 #p1
 ```
@@ -332,6 +333,7 @@ p2 <- counts_norm %>%
   scale_colour_manual(values = bra_eur_colours) +
   scale_y_continuous( expand = c(0, 0), limits = c(0, NA)
                      ,labels = scales::percent_format(accuracy = 1)) +
+  scale_x_date(date_breaks = "1 year", limits = c(as.Date("2019-01-01"), DateLimit), date_labels = "%b-%Y") +
   theme_minimal() +
   labs(x = NULL, y = NULL) + 
   theme(legend.position = "none")
@@ -361,7 +363,8 @@ p1 <- counts_norm %>%
   filter(DATE <= UpperLimit) %>%
   ggplot(aes(x = DATE)) +
   geom_line(aes(y = MVTS_INT, colour = REG)) +
-  scale_colour_manual(values = bra_eur_colours) + 
+  scale_colour_manual(values = bra_eur_colours) +
+  scale_x_date(date_breaks = "1 year", limits = c(as.Date("2019-01-01"), DateLimit), date_labels = "%b-%Y") +
   theme_minimal() +
   labs(x = NULL, y = NULL, colour = NULL) +
   theme(legend.position = c(0.9, 0.9))
@@ -374,6 +377,7 @@ p2 <- counts_norm %>%
   scale_colour_manual(values = bra_eur_colours) + 
   scale_y_continuous( expand = c(0, 0), limits = c(0, NA)
                      ,labels = scales::percent_format(accuracy = 1)) +
+  scale_x_date(date_breaks = "1 year", limits = c(as.Date("2019-01-01"), DateLimit), date_labels = "%b-%Y") +
   theme_minimal() +
   labs(x = NULL, y = NULL, colour = NULL) +
   theme(legend.position = "none")
@@ -427,7 +431,7 @@ ds3 %>% ggplot(aes(x = reorder(APT_ICAO, MVTS))) +
   scale_fill_brewer(palette="BuGn", guide = guide_legend()) +
   scale_y_continuous(labels = scales::label_number()) +
   facet_grid(.~REG, scales = "free_x") +
-  labs(x = NULL, y = "movements", fill = NULL
+  labs(x = NULL, y = "Movements", fill = NULL
        ,caption = "Note: 2019 and 2020: annual totals; 2021: year-to-date") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5), axis.ticks = element_blank()) +
@@ -458,7 +462,7 @@ ds3 %>% filter(YR == 2020) %>%
   labs(caption = "Variation of annual traffic 2019-2020"
     ,y = NULL, x = NULL, fill = NULL) +
   theme_minimal() +
-  theme(legend.position = c(0.1, 0.9))
+  theme(legend.position = c(0.1, 0.875), legend.background = element_rect(color = "white"))
 ```
 
 (ref:apt-annual-var-2021) Year-to-date variation of traffic at top-10 airports in Brazil and Europe
@@ -486,11 +490,13 @@ ytd_apt_var %>% filter(YEAR == 2021) %>%
   geom_text( aes(y = VAR_YTD, label = scales::percent(VAR_YTD, accuracy = 1))
             , size = 3, nudge_y = 0.05
             , colour = "white") +
- # scale_y_continuous(labels = scales::percent_format(), limits = c(-0.8,0)) +
+ scale_y_continuous(labels = scales::percent_format()
+                    , limits = c(-0.95,0)
+                    ) +
   labs(caption = "Variation of year-to-date traffic 2019 vs 2021"
     ,y = NULL, x = NULL, fill = NULL) +
   theme_minimal() +
-  theme(legend.position = c(0.1, 0.9))
+  theme(legend.position = c(0.1, 0.875), legend.background = element_rect(color = "white"))
 ```
 
 Figure \@ref(fig:apt-annual-var-2020) shows the variation of the annual traffic at the top-10 airports in each region.
