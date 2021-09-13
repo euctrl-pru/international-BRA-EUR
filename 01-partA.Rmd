@@ -545,7 +545,7 @@ pp <- tmp_eur %>%
   geom_abline(intercept = 0, slope = 0.2, linetype = "dashed", colour = "grey30") +
   geom_point(aes(x = MVTS_DOM, y = MVTS_INTL, shape = as.factor(YEAR), color = as.factor(YEAR)), size = 3) +
   labs(x = NULL, y = NULL, shape = NULL, color = NULL) +
-  scale_colour_brewer(type = "seq") +
+  scale_colour_brewer(type = "seq", palette = 1) +
   theme_minimal() +
   facet_wrap(. ~ APT_ICAO, ncol = 2) +
   theme(legend.position = "top")
