@@ -207,10 +207,10 @@ reg_tfc %>%
   scale_colour_manual(values = bra_eur_colours, labels = c("BRA","EUR")) +
   scale_y_continuous( expand = c(0, 0), limits = c(0, NA)
                      ,labels = scales::percent_format(accuracy = 1)) +
-  scale_x_date(date_breaks = "1 year", limits = c(as.Date("2019-01-01"), DateLimit), date_labels = "%b-%Y") +
+  scale_x_date(limits = c(as.Date("2019-01-01"), DateLimit), date_labels = "%b-%Y") +
   theme_minimal() +
   labs(x = NULL, y = NULL, colour = NULL) +
-  theme(legend.position = c(0.1, 0.4))
+  theme(legend.position = c(0.9, 0.87))
 
 ```
 
@@ -319,12 +319,9 @@ p1 <- counts_norm %>%
   theme_minimal() +
   labs(x = NULL, y = NULL, colour = NULL) +
   scale_colour_manual(values = bra_eur_colours) +
-  scale_x_date(date_breaks = "1 year", limits = c(as.Date("2019-01-01"), DateLimit), date_labels = "%b-%Y") +
-  theme(legend.position = c(0.1,0.55))
-#p1
-```
+  scale_x_date(limits = c(as.Date("2019-01-01"), DateLimit), date_labels = "%b-%Y") +
+  theme(legend.position = c(0.9,0.85), legend.background = element_rect(colour = "white"))
 
-```{r}
 p2 <- counts_norm %>%
   filter(DATE <= UpperLimit) %>%
   ggplot(aes(x = DATE)) +
@@ -333,7 +330,7 @@ p2 <- counts_norm %>%
   scale_colour_manual(values = bra_eur_colours) +
   scale_y_continuous( expand = c(0, 0), limits = c(0, NA)
                      ,labels = scales::percent_format(accuracy = 1)) +
-  scale_x_date(date_breaks = "1 year", limits = c(as.Date("2019-01-01"), DateLimit), date_labels = "%b-%Y") +
+  scale_x_date(limits = c(as.Date("2019-01-01"), DateLimit), date_labels = "%b-%Y") +
   theme_minimal() +
   labs(x = NULL, y = NULL) + 
   theme(legend.position = "none")
@@ -364,10 +361,10 @@ p1 <- counts_norm %>%
   ggplot(aes(x = DATE)) +
   geom_line(aes(y = MVTS_INT, colour = REG)) +
   scale_colour_manual(values = bra_eur_colours) +
-  scale_x_date(date_breaks = "1 year", limits = c(as.Date("2019-01-01"), DateLimit), date_labels = "%b-%Y") +
+  scale_x_date(date_breaks = "1 year", limits = c(as.Date("2019-01-01"), DateLimit), date_labels = "%b-%Y", date_minor_breaks = "1 month") +
   theme_minimal() +
   labs(x = NULL, y = NULL, colour = NULL) +
-  theme(legend.position = c(0.9, 0.9))
+  theme(legend.position = c(0.9, 0.87), legend.background = element_rect(colour = "white"))
 
 
 p2 <- counts_norm %>%
@@ -377,7 +374,7 @@ p2 <- counts_norm %>%
   scale_colour_manual(values = bra_eur_colours) + 
   scale_y_continuous( expand = c(0, 0), limits = c(0, NA)
                      ,labels = scales::percent_format(accuracy = 1)) +
-  scale_x_date(date_breaks = "1 year", limits = c(as.Date("2019-01-01"), DateLimit), date_labels = "%b-%Y") +
+  scale_x_date(date_breaks = "1 year", limits = c(as.Date("2019-01-01"), DateLimit), date_labels = "%b-%Y", date_minor_breaks = "1 month") +
   theme_minimal() +
   labs(x = NULL, y = NULL, colour = NULL) +
   theme(legend.position = "none")
@@ -491,7 +488,7 @@ ytd_apt_var %>% filter(YEAR == 2021) %>%
             , size = 3, nudge_y = 0.05
             , colour = "white") +
  scale_y_continuous(labels = scales::percent_format()
-                    , limits = c(-0.95,0)
+                    , limits = c(-0.99,0)
                     ) +
   labs(caption = "Variation of year-to-date traffic 2019 vs 2021"
     ,y = NULL, x = NULL, fill = NULL) +
