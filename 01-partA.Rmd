@@ -27,11 +27,11 @@ library(zoo)
 bra_eur_colours <- c("#52854C","#4E84C4")
 
 #Read relevant data
-bra_count_region <- read_csv("./data/PBWG-BRA-region-traffic.csv")
+bra_count_region <- read_csv("./data/BRA-region-traffic.csv")
 eur_count_region <- read_csv("./data/PBWG-EUR-region-traffic.csv")
 
 
-bra_count_airport <- read_csv("./data/PBWG-BRA-airport-traffic.csv") %>%
+bra_count_airport <- read_csv("./data/BRA-airport-traffic.csv") %>%
   mutate(APT_ICAO = as.factor(APT_ICAO))
 
 eur_apts <- c("EGLL","EGKK","EHAM","EDDF","EDDM","LFPG","LSZH","LEMD","LEBL","LIRF")
@@ -116,7 +116,7 @@ knitr::include_graphics("./figures/scope-country-apts.png")
 
 \newpage
 
-# Timeline Review {-}
+# Traffic Characterization {-}
 
 The COVID-19 pandemic hit all countries worldwide, but at different moments. 
 In Europe, the first case was registered in January 24, 2020, in France. 
