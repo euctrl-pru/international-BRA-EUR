@@ -380,7 +380,7 @@ The sesonality of traffic in Europe is contrasted by the homogeneous demand leve
 Similar levels have been observed in the first two months of 2021.
 
 ```{r}
-UpperLimit <- lubridate::ymd("2022-01-01")
+UpperLimit <- as.Date("20200-01-01")
 
 p1 <- counts_norm %>%
   filter(DATE <= UpperLimit) %>%
